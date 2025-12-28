@@ -1,25 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Image Rotator</title>
+  <title>Random Image Redirect</title>
   <script>
-    const images = [
-      "https://i.postimg.cc/KvtXRgNN/IMG-20250829-WA0023.jpg",
-      "https://i.postimg.cc/6QqGhZMd/IMG_20250727_WA0035.jpg",
-      "https://i.postimg.cc/43yh1cW9/IMG_20250726_WA0012.jpg"
-    ];
+    document.addEventListener("DOMContentLoaded", function () {
+      const images = [
+        "https://i.postimg.cc/KvtXRgNN/IMG-20250829-WA0023.jpg",
+        "https://i.postimg.cc/6QqGhZMd/IMG_20250727_WA0035.jpg",
+        "https://i.postimg.cc/43yh1cW9/IMG_20250726_WA0012.jpg"
+      ];
 
-    let index = localStorage.getItem("imgIndex");
-    index = index ? parseInt(index) : 0;
-
-    const nextIndex = (index + 1) % images.length;
-    localStorage.setItem("imgIndex", nextIndex);
-
-    window.location.href = images[index];
+      const randomIndex = Math.floor(Math.random() * images.length);
+      window.location.replace(images[randomIndex]);
+    });
   </script>
 </head>
 <body>
-Redirecting...
+  Redirecting...
 </body>
 </html>
